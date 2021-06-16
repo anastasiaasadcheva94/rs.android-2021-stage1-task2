@@ -30,4 +30,9 @@ class Task2DateFormatterTest {
     fun testDateFormatter5() {
         assertEquals("Такого дня не существует", formatter.toTextDay("1", "13", "2020"))
     }
+
+    @Test
+    fun testDateFormatter6() {
+        assertEquals("Такого дня не существует", formatter.toTextDay("32", "06", "2021"))
+    }
 }

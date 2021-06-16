@@ -8,7 +8,7 @@ class DateFormatter {
     // TODO: Complete the following function
     fun toTextDay(day: String, month: String, year: String): String {
 
-        val calendar: Calendar = Calendar.getInstance(Locale("RU"))
+        val calendar = Calendar.getInstance(Locale("ru", "RU"))
         calendar.set(year.toInt(), month.toInt() - 1, day.toInt())
 
         val simpleDateFormat = SimpleDateFormat("dd MMMM, EEEE")
