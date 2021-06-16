@@ -44,4 +44,16 @@ class Task2BlocksTest {
         val blockA = arrayOf(1, "4", date1, 2, "3", date2, date3)
         assertEquals("31.12.2019", robotPaphnutiy.getData(blockA, LocalDate::class))
     }
+
+    @Test
+    fun testBlocks5() {
+        val blockA = arrayOf(1, 2)
+        assertEquals("", robotPaphnutiy.getData(blockA, String::class))
+    }
+
+    @Test
+    fun testBlocks6() {
+        val blockA = arrayOf("4", "3")
+        assertEquals(0, robotPaphnutiy.getData(blockA, Int::class))
+    }
 }
