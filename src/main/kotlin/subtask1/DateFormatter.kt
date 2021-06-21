@@ -8,15 +8,13 @@ class DateFormatter {
     // TODO: Complete the following function
     fun toTextDay(day: String, month: String, year: String): String {
 
-        val calendar = Calendar.getInstance(Locale("ru", "RU"))
-        calendar.set(year.toInt(), month.toInt() - 1, day.toInt())
-
-        val simpleDateFormat = SimpleDateFormat("dd MMMM, EEEE")
-        val final = simpleDateFormat.format(calendar.time)
-
-        return if (final.toString().startsWith(day)) {
-            final.toString()
-        } else {
+        val c = Calendar.getInstance()
+        c.isLenient = false
+        return try {
+            c.set(year.toInt(), month.toInt() - 1, day.toInt())
+            val formatter = SimpleDateFormat("dd MMMM, EEEE", Locale("ru"))
+            formatter.format(c.time)
+        } catch (e: Exception) {
             "Такого дня не существует"
         }
     }
